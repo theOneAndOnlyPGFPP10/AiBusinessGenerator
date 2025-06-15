@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pl" class="bg-gray-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Pomysłów Biznesowych (GPB)</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="../config.js"></script>
+</head>
+<body class="font-sans text-gray-800">
+    <header class="bg-white shadow-sm mb-10">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <a href="../index.html">
+                <h1 class="flex items-center text-4xl font-bold text-primary mb-2">
+                    Generator Pomysłów Biznesowych
+                </h1>
+            </a>
+            <p class="text-xl text-gray-600">Zamień swoje wizje w konkretne plany!</p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4">
+        <!-- Pasek postępu -->
+        <div class="progress-bar">
+            <div class="progress-step">
+                <div class="progress-step-number progress-step-active">1</div>
+                <span class="ml-2">Podstawy</span>
+            </div>
+            <div class="progress-line progress-line-pending"></div>
+            <div class="progress-step">
+                <div class="progress-step-number progress-step-pending">2</div>
+                <span class="ml-2">Szczegóły</span>
+            </div>
+            <div class="progress-line progress-line-pending"></div>
+            <div class="progress-step">
+                <div class="progress-step-number progress-step-pending">3</div>
+                <span class="ml-2">Wynik</span>
+            </div>
+        </div>
+
+        <!-- Krok 1: Informacje o Tobie i Biznesie -->
+        <section id="step1" class="step active-step">
+            <h2 class="text-2xl font-bold mb-6">Krok 1: Opowiedz nam o sobie i swoim pomyśle</h2>
+            <div class="text-center my-8">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Uśmiechnięta osoba pracująca nad pomysłem" class="intro-image">
+            </div>
+            <form id="formStep1">
+                <div class="form-group">
+                    <label for="aboutYou">Kim jesteś? Jakie masz doświadczenie lub pasje?</label>
+                    <textarea id="aboutYou" name="aboutYou" rows="4" placeholder="Np. Jestem grafikiem z 5-letnim doświadczeniem w agencji reklamowej, pasjonuję się zrównoważonym designem..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="initialIdea">Jaki jest Twój wstępny pomysł na biznes (w kilku zdaniach)?</label>
+                    <textarea id="initialIdea" name="initialIdea" rows="4" placeholder="Np. Chciałbym stworzyć platformę online łączącą lokalnych rzemieślników z klientami szukającymi unikalnych prezentów..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="targetAudienceSimple">Kto jest Twoim idealnym klientem (ogólnie)?</label>
+                    <input type="text" id="targetAudienceSimple" name="targetAudienceSimple" placeholder="Np. Młode matki, miłośnicy ekologii, małe firmy...">
+                </div>
+                <div class="form-group">
+                    <label for="uniqueValueSimple">Jaką unikalną wartość chcesz dostarczyć?</label>
+                    <input type="text" id="uniqueValueSimple" name="uniqueValueSimple" placeholder="Np. Personalizowane produkty, szybka dostawa, ekologiczne materiały...">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="nextStep(1)">Dalej</button>
+            </form>
+        </section>
+
+        <!-- Krok 2: Szczegółowy Formularz (Business Model Canvas) -->
+        <section id="step2" class="step">
+            <h2 class="text-2xl font-bold mb-6">Krok 2: Uzupełnij szczegóły (Business Model Canvas)</h2>
+            <p class="text-gray-600 mb-6">Odpowiedz na poniższe pytania, abyśmy mogli lepiej zrozumieć Twój model biznesowy.</p>
+            <div class="text-center my-8">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" alt="Zespół pracujący nad modelem biznesowym" class="intro-image">
+            </div>
+            <form id="formStep2" class="space-y-8">
+                <fieldset class="border border-gray-200 rounded-lg p-6">
+                    <legend class="text-primary font-semibold px-2">Segmenty Klientów</legend>
+                    <div class="form-group">
+                        <label for="customerSegments">Dla kogo tworzysz wartość? Jakie są najważniejsze grupy klientów?</label>
+                        <textarea id="customerSegments" name="customerSegments" rows="3" placeholder="Opisz szczegółowo swoich klientów..."></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset class="border border-gray-200 rounded-lg p-6">
+                    <legend class="text-primary font-semibold px-2">Propozycje Wartości</legend>
+                    <div class="form-group">
+                        <label for="valuePropositions">Jaką wartość dostarczasz klientom? Które problemy pomagasz rozwiązać?</label>
+                        <textarea id="valuePropositions" name="valuePropositions" rows="3" placeholder="Co wyróżnia Twoją ofertę?"></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset class="border border-gray-200 rounded-lg p-6">
+                    <legend class="text-primary font-semibold px-2">Kanały Dystrybucji</legend>
+                    <div class="form-group">
+                        <label for="channels">Jakimi kanałami chcesz docierać do swoich segmentów klientów?</label>
+                        <textarea id="channels" name="channels" rows="3" placeholder="Sprzedaż online, sklepy fizyczne, partnerzy, media społecznościowe..."></textarea>
+                    </div>
+                </fieldset>
+
+                <div class="flex justify-between mt-8">
+                    <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Wróć</button>
+                    <button type="button" class="btn btn-primary" onclick="submitForms()">Generuj Pomysł!</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Krok 3: Oczekiwanie na AI -->
+        <section id="step3" class="step">
+            <h2 class="text-2xl font-bold mb-6">Generowanie Twojego Biznes Planu...</h2>
+            <div class="text-center py-10">
+                <div class="loader mx-auto mb-6"></div>
+                <p class="text-gray-600 mb-8">Nasz inteligentny asystent analizuje Twoje dane. To może potrwać chwilę.</p>
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf" 
+                     alt="Inspirujący obrazek w tle podczas ładowania" 
+                     class="max-w-md mx-auto rounded-lg shadow-md opacity-70">
+            </div>
+        </section>
+
+        <!-- Krok 4: Wyniki -->
+        <section id="step4" class="step hidden">
+            <div class="max-w-7xl mx-auto px-4 py-8">
+                <!-- Nagłówek -->
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-primary mb-4">Twój Plan Biznesowy</h2>
+                    <p class="text-gray-600">Kompleksowy plan biznesowy z Business Model Canvas</p>
+                </div>
+
+                <!-- Okładka -->
+                <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+                    <div class="flex justify-center">
+                        <img id="coverImage" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" 
+                             alt="Okładka Business Pitch" 
+                             class="max-w-3xl w-full h-auto rounded-lg shadow-md object-cover">
+                    </div>
+                </div>
+
+                <!-- Podsumowanie i Pitch -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-primary mb-6">Podsumowanie Biznesowe</h3>
+                        <div id="businessSummary" class="text-gray-700 text-lg leading-relaxed"></div>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-primary mb-6">Business Pitch</h3>
+                        <div id="businessPitch" class="text-gray-700 text-lg leading-relaxed"></div>
+                    </div>
+                </div>
+
+                <!-- Sekcja 2: Analiza Pomysłu -->
+                <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Analiza Pomysłu</h2>
+                    <div class="flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold mb-2">
+                                <span id="evaluationScore" class="text-primary">-</span>
+                                <span class="text-gray-600 text-2xl">/10</span>
+                            </div>
+                            <p class="text-gray-600">Ocena pomysłu biznesowego</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Model Canvas -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-primary mb-8 text-center">Business Model Canvas</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Lewa strona BMC -->
+                        <div class="space-y-4">
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                                <h4 class="font-bold text-xl mb-4 text-primary">Segmenty Klientów</h4>
+                                <div id="bmc-customerSegments" class="text-gray-700 prose"></div>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                                <h4 class="font-bold text-xl mb-4 text-primary">Propozycje Wartości</h4>
+                                <div id="bmc-valuePropositions" class="text-gray-700 prose"></div>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                                <h4 class="font-bold text-xl mb-4 text-primary">Kanały</h4>
+                                <div id="bmc-channels" class="text-gray-700 prose"></div>
+                            </div>
+                        </div>
+
+                        <!-- Środek BMC -->
+                        <div class="space-y-4">
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                                <h4 class="font-bold text-xl mb-4 text-primary">Relacje z Klientami</h4>
+                                <div id="bmc-customerRelationships" class="text-gray-700 prose"></div>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                                <h4 class="font-bold text-xl mb-4 text-primary">Strumienie Przychodów</h4>
+                                <div id="bmc-revenueStreams" class="text-gray-700 prose"></div>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                                <h4 class="font-bold text-xl mb-4 text-primary">Kluczowe Zasoby</h4>
+                                <div id="bmc-keyResources" class="text-gray-700 prose"></div>
+                            </div>
+                        </div>
+
+                        <!-- Prawa strona BMC -->
+                        <div class="space-y-4">
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                                <h4 class="font-bold text-xl mb-4 text-primary">Kluczowe Działania</h4>
+                                <div id="bmc-keyActivities" class="text-gray-700 prose"></div>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                                <h4 class="font-bold text-xl mb-4 text-primary">Kluczowi Partnerzy</h4>
+                                <div id="bmc-keyPartnerships" class="text-gray-700 prose"></div>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                                <h4 class="font-bold text-xl mb-4 text-primary">Struktura Kosztów</h4>
+                                <div id="bmc-costStructure" class="text-gray-700 prose"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <button id="downloadMdBtn"
+                        type="button"
+                        onclick="generateMD()"
+                        class="bg-black text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg hover:bg-gray-900 transition-colors flex items-center justify-center gap-3 mx-auto"
+                        style="min-width: 220px;">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>Pobierz plik MD</span>
+                    </button>
+                    <div id="mdLoader" class="hidden mt-4 flex flex-col items-center justify-center">
+                        <div class="loader mb-2"></div>
+                        <span class="text-black font-semibold">Generowanie MD...</span>
+                    </div>
+                    <button type="button" onclick="restartGenerator()" class="mt-6 bg-white border border-black text-black px-8 py-3 rounded-xl text-lg font-bold shadow hover:bg-gray-100 transition-colors mx-auto block">Wygeneruj nowy biznes</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-8 mt-16 text-gray-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© 2024 Generator Pomysłów Biznesowych. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script> -->
+    <script src="../js/app.js"></script>
+</body>
+</html>

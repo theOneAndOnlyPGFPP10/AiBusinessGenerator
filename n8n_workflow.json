@@ -1,0 +1,258 @@
+{
+  "name": "n8n-workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "Wg promptu użytkownika, spróbuj ustalić Summary działalności. Output powinien być zbudowany TYLKO I WYŁĄCZNIE w formie JSON. Pierwsza właściwość o nazwie \"businessSummary\" powinna mieć jako wartość podsumowanie pomysłu biznesowego. Nastę właściwość to \"cover-image\" a jej wartość to alternatywny tekst zdjęcia okładki pomysłu na biznes.\nW \"businessPitch\" rozbuduj informacje posiłkując się tymi od użytkownika i wygeneruj dodatkowe informacje, które dopełniłyby Business Model Canvas. Postaraj się w trzecim napisać Business Pitch do 1000 znaków i opisywać biznes jak przedmiot a nie działalność. Kolejne właściwości będą we właściwości \"bmc\", która będzie miała w sobie inne właściwości jak: \"customerSegments\", \"valuePropositions\", \"channels\", \"customerRelationships\", \"revenueStreams\", \"keyResources\", \"keyActivities\", \"keyPartnerships\", \"costStructure\". Wartości tych właściwości mają pasować do promptu i mają być one wygenerowane, jeżeli prompt coś pominął. Staraj się wygenerować stringi nie dłuższe niż 120 znaków i nie krótsze niż 60. Jako następną właściwość, poza \"bmc\", dodaj \"name\" czyli wygenerowaną chwytliwą nazwę, która w pełni odwzorowuje typ działalności i szczególny jej charakter. Nazwa ma się składać z maks 2 lub 3 wyrazów. Ostatnią ma być \"evaluation\" czyli ocena w skali od 1 do 10. Ocena ma być rzetelna i poparta rynkiem oraz zapotrzebowaniem i możliwymi problemami. "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        280,
+        0
+      ],
+      "id": "a8395769-5337-450d-b419-01dcd139b7a6",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        200,
+        220
+      ],
+      "id": "343ee2c4-f118-43bb-950f-0101a17ba925",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "O9o83YY1b2bscT7v",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"businessSummary\": \"Biznes charakteryzuje się czymś\",\n  \"cover-image\": \"Zdjęcie przedstawia okładkę pomysłu na biznes, który polega na\",\n  \"businessPitch\": \"Business Pitch jakich mało\",\n  \"name\":\"Kawka u Diany\",\n  \"evaluation\": \"6\",\n  \"bmc\": {\n    \"customerSegments\": \"Grupa klientów, do której kierowany jest ten unikalny pomysł\",\n    \"valuePropositions\": \"Dostarczamy wartość, która wyróżnia nas na tle konkurencji\",\n    \"channels\": \"Korzystamy z kanałów dotarcia takich jak media społecznościowe i własna platforma\",\n    \"customerRelationships\": \"Budujemy relacje oparte na zaufaniu i prostocie obsługi\",\n    \"revenueStreams\": \"Model przychodów oparty o subskrypcje i opłaty za usługi\",\n    \"keyResources\": \"Główne zasoby to zespół, know-how i technologia\",\n    \"keyActivities\": \"Kluczowe działania to rozwój produktu, marketing i obsługa klienta\",\n    \"keyPartnerships\": \"Partnerzy technologiczni i strategiczni wspierający rozwój modelu\",\n    \"costStructure\": \"Główne koszty to infrastruktura IT, wynagrodzenia i marketing\"\n  }\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        580,
+        220
+      ],
+      "id": "092262f0-cf20-4c9e-a747-db1462bb25f7",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        660,
+        0
+      ],
+      "id": "c914b25e-372e-4f35-b101-fb01da8fe0b4",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "de7b5b12-d739-4c2a-9e2b-2bc96ae2d03c",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -20,
+        0
+      ],
+      "id": "87e6f92a-dbf9-47dc-89c4-8adfdade853a",
+      "name": "Business Generator",
+      "webhookId": "de7b5b12-d739-4c2a-9e2b-2bc96ae2d03c"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "d9b2f4b7-1db5-4069-8b9e-04c574f6fcd9",
+        "responseMode": "lastNode",
+        "responseData": "firstEntryBinary",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -20,
+        420
+      ],
+      "id": "806fb1e3-e335-48eb-9342-b61e695af437",
+      "name": "Webhook",
+      "webhookId": "d9b2f4b7-1db5-4069-8b9e-04c574f6fcd9"
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>{{ $json.body.name }}</title>\n  <style>\n    @page {\n      size: A4;\n      margin: 2cm;\n    }\n    body {\n      font-family: Arial, sans-serif;\n      font-size: 12pt;\n      color: #000;\n      line-height: 1.6;\n    }\n    h1, h2, h3{\n      text-align:center;\n    }\n    h1 {\n      font-size: 24pt;\n      color: #000;\n      margin-bottom: 0.2em;\n    }\n    h2 {\n      font-size: 18pt;\n      color: #4F46E5;\n      margin-top: 1.5em;\n      margin-bottom: 0.4em;\n    }\n    h3 {\n      font-size: 14pt;\n      color: #4F46E5;\n      margin-top: 1em;\n      margin-bottom: 0.3em;\n    }\n    p{\n      text-align: justify;\n    }\n    img.cover {\n      width: 100%;\n      max-height: 300px;\n      object-fit: cover;\n      margin: 1em 0;\n    }\n    .bmc-grid {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 1.2em;\n      margin-top: 2em;\n    }\n    .bmc-item {\n      border: 1px solid #ccc;\n      padding: 1em;\n      border-radius: 6px;\n    }\n    .evaluation {\n      margin-top: 2em;\n      font-size: 14pt;\n      font-weight: bold;\n    }\n  </style>\n</head>\n<body>\n\n  <h1>{{ $json.body.name }}</h1>\n\n  <img class=\"cover\" src=\"https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80\" alt=\"Okładka\">\n\n  <h2>Podsumowanie działalności</h2>\n  <p>{{ $json.body.businessSummary }}</p>\n\n  <h2>Pitch biznesowy</h2>\n  <p>{{ $json.body.businessPitch }}</p>\n\n  <h2>Model Biznesowy (BMC)</h2>\n  <div class=\"bmc-grid\">\n    <div class=\"bmc-item\">\n      <h3>Segmenty klientów</h3>\n      <p>{{ $json.body.bmc.customerSegments }}</p>\n    </div>\n    <div class=\"bmc-item\">\n      <h3>Propozycje wartości</h3>\n      <p>{{ $json.body.bmc.valuePropositions }}</p>\n    </div>\n    <div class=\"bmc-item\">\n      <h3>Kanały</h3>\n      <p>{{ $json.body.bmc.channels }}</p>\n    </div>\n    <div class=\"bmc-item\">\n      <h3>Relacje z klientami</h3>\n      <p>{{ $json.body.bmc.customerRelationships }}</p>\n    </div>\n    <div class=\"bmc-item\">\n      <h3>Strumienie przychodów</h3>\n      <p>{{ $json.body.bmc.revenueStreams }}</p>\n    </div>\n    <div class=\"bmc-item\">\n      <h3>Kluczowe zasoby</h3>\n      <p>{{ $json.body.bmc.keyResources }}</p>\n    </div>\n    <div class=\"bmc-item\">\n      <h3>Kluczowe działania</h3>\n      <p>{{ $json.body.bmc.keyActivities }}</p>\n    </div>\n    <div class=\"bmc-item\">\n      <h3>Kluczowe partnerstwa</h3>\n      <p>{{ $json.body.bmc.keyPartnerships }}</p>\n    </div>\n    <div class=\"bmc-item\">\n      <h3>Struktura kosztów</h3>\n      <p>{{ $json.body.bmc.costStructure }}</p>\n    </div>\n  </div>\n\n  <p class=\"evaluation\">Ocena projektu: {{ $json.body.evaluation }}/10</p>\n\n</body>\n</html>\n"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        220,
+        420
+      ],
+      "id": "9c054f47-0d41-43ca-9501-094f1ce3b6a6",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "html": "={{ $json.html.replace(/\\n\\n\\n/g, '<br>') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        400,
+        420
+      ],
+      "id": "e75ad313-5407-468e-a9c1-7cf54cd993d1",
+      "name": "Markdown"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "data",
+        "binaryPropertyName": "=data",
+        "options": {
+          "fileName": "={{ $('Webhook').item.json.body.name.toLowerCase() }}.md"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        600,
+        420
+      ],
+      "id": "c1da0235-61ba-4aab-871f-3546b120fe47",
+      "name": "Convert to File"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        []
+      ]
+    },
+    "Business Generator": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1671c558-8b32-44b8-89de-50d2431d0d06",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "85c7541be22d691b992af89c86c87f2b9b8f827970f7154f5ff7287e9438cbb8"
+  },
+  "id": "29qwAoPXv9NZneSh",
+  "tags": []
+}

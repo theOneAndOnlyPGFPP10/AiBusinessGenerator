@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-lg font-semibold transition-colors duration-300;
+  }
+  
+  .btn-primary {
+    @apply bg-indigo-600 text-white hover:bg-indigo-700;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-600 text-white hover:bg-gray-700 mr-3;
+  }
+
+  .form-group {
+    @apply mb-5;
+  }
+
+  .form-group label {
+    @apply block mb-2 font-semibold;
+  }
+
+  .form-group input[type="text"],
+  .form-group textarea {
+    @apply w-full p-3 border border-gray-300 rounded-lg text-base font-sans transition-colors duration-200;
+  }
+
+  .form-group input[type="text"].error,
+  .form-group textarea.error {
+    @apply border-red-500 bg-red-50;
+  }
+
+  .form-group input[type="text"]:focus,
+  .form-group textarea:focus {
+    @apply outline-none ring-2 ring-indigo-500 border-transparent;
+  }
+
+  .form-group input[type="text"].error:focus,
+  .form-group textarea.error:focus {
+    @apply ring-red-500;
+  }
+
+  .error-message {
+    @apply text-red-500 text-sm mt-1 animate-fadeIn;
+  }
+
+  .step {
+    @apply hidden bg-white p-8 rounded-lg shadow-md mb-10;
+  }
+
+  .active-step {
+    @apply block;
+  }
+
+  .loader {
+    @apply border-4 border-gray-200 rounded-full w-12 h-12 animate-spin;
+    border-top-color: theme('colors.indigo.600');
+  }
+
+  .result-item {
+    @apply bg-white p-5 mb-5 rounded-lg shadow-md;
+  }
+
+  .result-content {
+    @apply p-4 bg-gray-50 rounded-lg;
+  }
+
+  .intro-image {
+    @apply max-w-full h-auto rounded-lg shadow-md;
+  }
+
+  .progress-bar {
+    @apply flex justify-between items-center mb-8;
+  }
+
+  .progress-step {
+    @apply flex items-center;
+  }
+
+  .progress-step-number {
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-colors duration-300;
+  }
+
+  .progress-step-active {
+    @apply bg-indigo-600 text-white;
+  }
+
+  .progress-step-completed {
+    @apply bg-green-600 text-white;
+  }
+
+  .progress-step-pending {
+    @apply bg-gray-200 text-gray-600;
+  }
+
+  .progress-line {
+    @apply flex-1 h-1 mx-4 transition-colors duration-300;
+  }
+
+  .progress-line-active {
+    @apply bg-indigo-600;
+  }
+
+  .progress-line-pending {
+    @apply bg-gray-200;
+  }
+
+  /* Landing page specific styles */
+  .feature-card {
+    @apply relative pl-16 pt-6;
+  }
+
+  .feature-icon {
+    @apply absolute left-0 top-0 flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white;
+  }
+
+  .section-title {
+    @apply text-3xl font-extrabold text-gray-900 sm:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+} 
