@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="../config.js"></script>
+    <script>
+        if (typeof window.env === "undefined") {
+            document.write('<script src="config.template.js"><\/script>');
+        }
+    </script>
 </head>
 <body class="font-sans text-gray-800">
     <header class="bg-white shadow-sm mb-10">
