@@ -18,6 +18,7 @@ Projekt AI Business Generator został stworzony z pomocą Sztucznej Inteligencj
 ## 🛠️ Wymagania
 
 - Node.js (tylko jeśli używasz Tailwind lokalnie)
+- Python 3 (do uruchomienia serwera HTTP)
 - Brak backendu – czysty frontend
 
 ---
@@ -59,8 +60,7 @@ Aby wystartować z aplikacją, nalezy w terminalu aplikacji wpisać komendę
 ```bash
 npm run start
 ```
-Ta komenda pozwoli wystartować interfejs projektu z pomocą .
-
+Ta komenda uruchomi nasłuchiwanie tailwind oraz prosty serwer HTTP.
 2. **Serwera**
 Serwer nalezy włączyć poprzez przycisk czerwony "Execute workflow", na dole widoku. 
 Dodatkowo, nalezy się upewnić czy cały workflow jest w trybie Editor a nie Executions, u góry widoku.
