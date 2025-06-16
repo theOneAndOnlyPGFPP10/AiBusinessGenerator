@@ -1,9 +1,6 @@
 # 📦 Node modules (zawsze ignoruj)
 node_modules/
 
-# 📄 Pliki środowiskowe i prywatne
-config.js         
-
 # 🔄 Pliki generowane automatycznie
 output.css        
 *.log             

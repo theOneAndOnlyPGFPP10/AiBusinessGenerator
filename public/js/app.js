@@ -236,7 +236,7 @@ async function submitForms() {
             console.log('Wysyłane dane:', formData);
 
             // Wyślij dane do API
-            const response = await fetch(window.env.BG_API, {
+            const response = await fetch("https://pwlp10.app.n8n.cloud/webhook-test/de7b5b12-d739-4c2a-9e2b-2bc96ae2d03c", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -399,7 +399,7 @@ async function generateMD() {
     }
 
     try {
-        const response = await fetch(window.env.DOC_API, {
+        const response = await fetch("https://pwlp10.app.n8n.cloud/webhook-test/d9b2f4b7-1db5-4069-8b9e-04c574f6fcd9", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

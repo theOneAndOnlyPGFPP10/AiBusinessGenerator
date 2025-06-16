@@ -2,7 +2,7 @@
 
 ## Opis
 
-AI Business Generator jest to prosta aplikacja polegająca na wysłaniu formularza do serweru sterowanego Agentem AI zbudowanego w edytorze graficznyn N8N. 
+AI Business Generator jest to prosta aplikacja polegająca na wysłaniu formularza do serweru sterowanego Agentem AI, zbudowanego w edytorze graficznyn N8N. 
 Projekt AI Business Generator został stworzony z pomocą Sztucznej Inteligencji. 
 
 
@@ -51,21 +51,6 @@ zaraz po niej mozesz wyjść z podglądu naciskając w terminalu `Ctrl` + `C`.
 
 Cały workflow Agenta AI, potrzebnego do wygenerowania Business Pitch, znajduje się w pliku `n8n_workflow.json`. Ten plik nalezy zaimportować do swojego workflow, w swoim edytorze n8n.
 Dodatkowo, nalezy ustawić Credentials dla OpenAI w `OpenAI Chat Model`. Ta usługa jest **płatna** a bez niej serwer nie ruszy. 
-
-
-
-
-
-5. **Dodaj plik** `config.js`
-
-Dodaj plik `config.js` w root'cie projektu. Treść pliku powinna być podobna do tej ponizej.
-```
-window.env = {
-    BG_API: "TWÓJ_WEBHOOK_ENDPOINT_BUSINESS_GENERATOR",
-    DOC_API:"TWÓJ_WEBHOOK_ENDPOINT_WEBHOOK"
-}
-```
-W miejsca wartości właściwości, musisz wpisać endpointy webhooków. Nalezy znaleźć dwa Endpointy. Jeden dla Generatora, drugi dla Webhooka, który jest odpowiedzialny za wysłanie pliku MD z rozpiską całego planu biznesowego.
 
 ## START
 
