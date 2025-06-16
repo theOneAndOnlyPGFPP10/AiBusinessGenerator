@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tailwindcss -i ./css/input.css -o ./css/output.css --minify",
-    "watch": "tailwindcss -i ./css/input.css -o ./css/output.css --watch",
+    "build": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --minify",
+    "watch": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
     "start": "concurrently \"npm run watch\" \"python3 -m http.server 8000\""
   },
   "keywords": [],
