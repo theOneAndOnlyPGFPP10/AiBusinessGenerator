@@ -1,89 +1,93 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt - Generator Pomysłów Biznesowych</title>
-    <link href="../css/output.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt - Generator Pomysłów Biznesowych</title>
+  <link href="../css/output.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-100">
-    <nav class="bg-white shadow-lg">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between">
-                <div class="flex space-x-7">
-                    <a href="../../public/index.html" class="flex items-center py-4">
-                        <span class="font-semibold text-gray-500 text-lg">GPB</span>
-                    </a>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <a href="../../public/index.html" class="py-4 px-2 text-gray-500 hover:text-blue-500">Główna</a>
-                    <a href="../../public/pages/features.html" class="py-4 px-2 text-gray-500 hover:text-blue-500">Funkcje</a>
-                    <a href="../../public/pages/about.html" class="py-4 px-2 text-gray-500 hover:text-blue-500">O nas</a>
-                    <a href="../../public/pages/contact.html" class="py-4 px-2 text-blue-500 border-b-4 border-blue-500">Kontakt</a>
-                </div>
-            </div>
+<body class="bg-gray-100 font-inter">
+  <nav class="bg-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex space-x-7">
+          <a href="../index.html" class="flex items-center py-4">
+            <span class="font-semibold text-gray-500 text-lg">GPB</span>
+          </a>
         </div>
-    </nav>
-
-    <div class="container mx-auto px-4 py-8">
-        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
-            <h1 class="text-3xl font-bold text-center mb-8">Skontaktuj się z nami</h1>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h2 class="text-xl font-semibold mb-4">Informacje kontaktowe</h2>
-                    <div class="space-y-4">
-                        <p class="flex items-center">
-                            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                            kontakt@gpb.pl
-                        </p>
-                        <p class="flex items-center">
-                            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                            </svg>
-                            +48 123 456 789
-                        </p>
-                        <p class="flex items-center">
-                            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                            ul. Przykładowa 123, 00-000 Warszawa
-                        </p>
-                    </div>
-                </div>
-                
-                <div>
-                    <form class="space-y-4">
-                        <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
-                                Imię i nazwisko
-                            </label>
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" required>
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
-                                Email
-                            </label>
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" required>
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
-                                Wiadomość
-                            </label>
-                            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" rows="4" required></textarea>
-                        </div>
-                        <div>
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                                Wyślij wiadomość
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="flex items-center space-x-4">
+          <a href="../index.html" class="py-2 px-3 text-gray-500 hover:text-primary">Główna</a>
+          <a href="./features.html" class="py-2 px-3 text-gray-500 hover:text-primary">Funkcje</a>
+          <a href="./about.html" class="py-2 px-3 text-gray-500 hover:text-primary">O nas</a>
+          <a href="./contact.html" class="py-2 px-3 text-primary border-b-2 border-primary font-medium">Kontakt</a>
         </div>
+      </div>
     </div>
+  </nav>
+
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow p-8">
+      <h1 class="text-3xl font-bold text-center mb-8">Skontaktuj się z nami</h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Informacje kontaktowe -->
+        <div>
+          <h2 class="text-xl font-semibold mb-4">Informacje kontaktowe</h2>
+          <div class="space-y-4 text-gray-700">
+            <p class="flex items-center">
+              <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              kontakt@gpb.pl
+            </p>
+            <p class="flex items-center">
+              <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              +48 123 456 789
+            </p>
+            <p class="flex items-center">
+              <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              ul. Przykładowa 123, 00-000 Warszawa
+            </p>
+          </div>
+        </div>
+
+        <!-- Formularz -->
+        <div>
+          <form class="space-y-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Imię i nazwisko</label>
+              <input id="name" type="text" required
+                class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <input id="email" type="email" required
+                class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" />
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Wiadomość</label>
+              <textarea id="message" rows="4" required
+                class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+            </div>
+            <div>
+              <button type="submit"
+                class="bg-primary hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded transition-colors duration-200">
+                Wyślij wiadomość
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
-</html> 
+</html>
