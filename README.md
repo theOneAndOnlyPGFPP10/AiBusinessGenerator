@@ -35,16 +35,16 @@ cd AiBusinessGenerator
 ```bash
 npm install
 ```
-3. **Zbuduj CSS**
+3. **Zbuduj CSS (opcjonalnie)**
 ```bash
 npm run watch
 ```
 Powyzsza komenda kryje 
 
 ```bash
-npx tailwindcss -i ./css/input.css -o ./css/output.css --watch
+npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch
 ```
-zaraz po niej mozesz wyjść z podglądu naciskając w terminalu `Ctrl` + `C`.
+Zaraz po niej mozesz wyjść z podglądu naciskając w terminalu `Ctrl` + `C`. Dzięki temu działaniu, budowany jest plik `output.css` w folderze `/public/css/`, na bazie pliku `input.css` w tym samym folderze, i nasłuchuje projekt przy ewentualnych zmianach naniesionych we wskazanych plikach HTML i JS, wskazanych w pliku `tailwind.conifg.js`. 
 
 4. **Zbuduj Agenta AI w n8n**
 
@@ -59,7 +59,7 @@ Aby wystartować z aplikacją, nalezy w terminalu aplikacji wpisać komendę
 ```bash
 npm run start
 ```
-Ta komenda pozwoli wystartować interfejs projektu.
+Ta komenda pozwoli wystartować interfejs projektu z pomocą .
 
 2. **Serwera**
 Serwer nalezy włączyć poprzez przycisk czerwony "Execute workflow", na dole widoku. 
