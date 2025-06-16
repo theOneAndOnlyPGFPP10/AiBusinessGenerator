@@ -61,6 +61,7 @@ Aby wystartować z aplikacją, nalezy w terminalu aplikacji wpisać komendę
 npm run start
 ```
 Ta komenda uruchomi nasłuchiwanie tailwind oraz prosty serwer HTTP.
+
 2. **Serwera**
 Serwer nalezy włączyć poprzez przycisk czerwony "Execute workflow", na dole widoku. 
 Dodatkowo, nalezy się upewnić czy cały workflow jest w trybie Editor a nie Executions, u góry widoku.
