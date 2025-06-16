@@ -2,7 +2,7 @@
 
 ## Opis
 
-AI Business Generator jest to prosta aplikacja polegająca na wysłaniu formularza do serweru sterowanego Agentem AI, zbudowanego w edytorze graficznyn N8N. 
+[AI Business Generator](https://ai-business-generator-j6gd.vercel.app/index.html) jest to prosta aplikacja polegająca na wysłaniu formularza do serweru sterowanego Agentem AI, zbudowanego w edytorze graficznyn N8N. 
 Projekt AI Business Generator został stworzony z pomocą Sztucznej Inteligencji. 
 
 
