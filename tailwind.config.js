@@ -1,15 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./index.html",
-    "./pages/**/*.html",
-    "./screens/**/*.html",
-    "./js/**/*.js"
+    "./public/**/*.html",
+    "./public/**/*.js"
   ],
   theme: {
     extend: {
       fontFamily: {
-        'inter': ['Inter', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
       colors: {
         primary: 'rgb(79, 70, 229)',
@@ -18,4 +16,4 @@ module.exports = {
     },
   },
   plugins: [],
-} 
+}
