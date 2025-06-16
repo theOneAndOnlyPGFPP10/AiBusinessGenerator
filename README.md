@@ -10,8 +10,7 @@ Projekt AI Business Generator został stworzony z pomocą Sztucznej Inteligencj
 
 - HTML + CSS (Tailwind)
 - JavaScript (Vanilla)
-- `config.js` – konfiguracja środowiskowa (ignorowana w repo)
-- Możliwość pobierania pliku MarkDown
+- Możliwość pobierania pliku MarkDown z gotowym Business Summary
 - Integracja z webhookiem n8n
 
 ---
